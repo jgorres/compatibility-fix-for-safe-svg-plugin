@@ -1,0 +1,22 @@
+# Abhängigkeiten
+/vendor/
+node_modules/
+
+# Release-ZIPs
+/dist/
+
+# SVN-Checkout (eigene Arbeitskopie, nicht Teil dieses Repos)
+/svn/
+
+# Caches und lokale Einstellungen
+.phpcs-cache
+.claude/settings.local.json
+.playwright-mcp/
+*.log
+
+# Betriebssystem / Editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

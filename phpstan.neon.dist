@@ -1,0 +1,36 @@
+# ==================================================
+# PHPStan-Konfiguration für Compatibility Fix for Safe SVG
+# Autor: Jörn Gorres
+# Level 6, WordPress-Stubs über szepeviktor/phpstan-wordpress.
+# ==================================================
+
+includes:
+	- vendor/szepeviktor/phpstan-wordpress/extension.neon
+
+parameters:
+	level: 6
+	phpVersion: 70400
+
+	paths:
+		- plugin
+
+	excludePaths:
+		- plugin/languages (?)
+
+	# Zusätzliche Stubs (Ordner darf leer sein)
+	scanDirectories:
+		- stubs
+
+	# Konstanten, die die Hauptdatei zur Laufzeit definiert
+	bootstrapFiles:
+		- phpstan-bootstrap.php
+
+	# Verhindert Fehlalarme bei WordPress-typischen Rückgabetypen
+	treatPhpDocTypesAsCertain: false
+
+	# Ignorierte Muster dürfen auch ohne Treffer bleiben
+	reportUnmatchedIgnoredErrors: false
+
+	ignoreErrors:
+		# array ohne Wertetyp auf Level 6 tolerieren (WordPress-typisch)
+		- identifier: missingType.iterableValue

@@ -1,0 +1,111 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Compatibility Fix for Safe SVG 1.1.2 Readme\n"
+"Last-Translator: Jörn Gorres <joern@gorres.com>\n"
+"Language-Team: Jörn Gorres <joern@gorres.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-09-28 20:00+0000\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Fixes a conflict between &quot;Safe SVG&quot; and &quot;Enable Media Replace&quot; when replacing existing media files with SVG uploads."
+msgstr "Behebt einen Konflikt zwischen „Safe SVG“ und „Enable Media Replace“ beim Ersetzen vorhandener Mediendateien durch SVG-Uploads."
+
+msgid "Compatibility Fix for Safe SVG"
+msgstr "Compatibility Fix for Safe SVG"
+
+msgid "No. The plugin can be deactivated and removed without leftovers (no postmeta, no options, no cron)."
+msgstr "Nein. Das Plugin lässt sich ohne Rückstände deaktivieren und entfernen (keine Post-Metadaten, keine Optionen, kein Cron)."
+
+msgid "Yes. As of version 1.1.0 the filters no longer perform a capability check, so SVG uploads also work in contexts without a logged-in user (for example programmatic sideloads via REST or WP-CLI). Security is still enforced through the Safe-SVG-active guard and Safe SVG's sanitization on <code>wp_handle_upload_prefilter</code>."
+msgstr "Ja. Seit Version 1.1.0 führen die Filter keine Rechteprüfung mehr durch, daher funktionieren SVG-Uploads auch in Kontexten ohne angemeldeten Benutzer (zum Beispiel programmatische Sideloads über REST oder WP-CLI). Die Sicherheit bleibt durch die Prüfung, ob Safe SVG aktiv ist, und durch die Bereinigung von Safe SVG auf <code>wp_handle_upload_prefilter</code> gewährleistet."
+
+msgid "Yes. The two filters are generic and apply to any plugin that calls <code>wp_check_filetype_and_ext()</code> directly."
+msgstr "Ja. Die beiden Filter sind generisch und gelten für jedes Plugin, das <code>wp_check_filetype_and_ext()</code> direkt aufruft."
+
+msgid "Yes. Without Safe SVG the filters of this plugin stay inactive. This is intentional: SVG uploads without a sanitizer would be an XSS risk (embedded JavaScript / SVG smuggling)."
+msgstr "Ja. Ohne Safe SVG bleiben die Filter dieses Plugins inaktiv. Das ist beabsichtigt: SVG-Uploads ohne Bereinigung wären ein XSS-Risiko (eingebettetes JavaScript / SVG-Smuggling)."
+
+msgid "Is the plugin still needed once EMR is updated and fixes the conflict itself?"
+msgstr "Wird das Plugin noch benötigt, sobald EMR aktualisiert ist und den Konflikt selbst behebt?"
+
+msgid "Does the plugin also work in WP-CLI / Cron / REST sideloads?"
+msgstr "Funktioniert das Plugin auch bei Sideloads über WP-CLI / Cron / REST?"
+
+msgid "Does the plugin also work with other replace plugins?"
+msgstr "Funktioniert das Plugin auch mit anderen Plugins zum Ersetzen von Medien?"
+
+msgid "Do I really need Safe SVG?"
+msgstr "Brauche ich Safe SVG wirklich?"
+
+msgid "Replace an existing media item with an SVG file via \"Replace media\" — it now works."
+msgstr "Ersetze eine vorhandene Mediendatei über „Medien ersetzen“ durch eine SVG-Datei – das funktioniert jetzt."
+
+msgid "Make sure that \"Safe SVG\" and \"Enable Media Replace\" are also active."
+msgstr "Stelle sicher, dass „Safe SVG“ und „Enable Media Replace“ ebenfalls aktiv sind."
+
+msgid "Activate the plugin."
+msgstr "Aktiviere das Plugin."
+
+msgid "In the WordPress admin go to Plugins → Add New → Upload Plugin and upload the ZIP file."
+msgstr "Gehe im WordPress-Adminbereich zu Plugins → Neues Plugin hinzufügen → Plugin hochladen und lade die ZIP-Datei hoch."
+
+msgid "So that this plugin does not open an unsanitized SVG upload path, the filters are active only when the \"Safe SVG\" plugin itself is active. Safe SVG then handles the SVG sanitization on <code>wp_handle_upload_prefilter</code> / <code>wp_handle_sideload_prefilter</code>. Without an active Safe SVG, SVG remains non-uploadable."
+msgstr "Damit dieses Plugin keinen Upload-Weg für nicht bereinigte SVG-Dateien öffnet, sind die Filter nur aktiv, wenn das Plugin „Safe SVG“ selbst aktiv ist. Safe SVG übernimmt dann die SVG-Bereinigung auf <code>wp_handle_upload_prefilter</code> / <code>wp_handle_sideload_prefilter</code>. Ohne aktives Safe SVG bleibt SVG nicht hochladbar."
+
+msgid "<strong>Safety guard:</strong>"
+msgstr "<strong>Sicherheitsvorkehrung:</strong>"
+
+msgid "This plugin registers the two required filters (<code>upload_mimes</code>, <code>wp_check_filetype_and_ext</code>) globally so that SVG uploads work through EMR as well."
+msgstr "Dieses Plugin registriert die beiden erforderlichen Filter (<code>upload_mimes</code>, <code>wp_check_filetype_and_ext</code>) global, sodass SVG-Uploads auch über EMR funktionieren."
+
+msgid "<strong>Solution:</strong>"
+msgstr "<strong>Lösung:</strong>"
+
+msgid "Root cause: EMR calls <code>wp_check_filetype_and_ext()</code> directly from its own submenu (<code>upload.php?page=enable-media-replace/...</code>) without going through the standard upload path (<code>wp_handle_upload</code>). Safe SVG, however, registers its MIME-type fix only on certain admin page hooks — and those do not reliably fire on the EMR replace page in practice."
+msgstr "Ursache: EMR ruft <code>wp_check_filetype_and_ext()</code> direkt aus seinem eigenen Untermenü (<code>upload.php?page=enable-media-replace/...</code>) auf, ohne den Standard-Upload-Weg (<code>wp_handle_upload</code>) zu durchlaufen. Safe SVG registriert seine MIME-Typ-Korrektur jedoch nur auf bestimmten Admin-Seiten-Hooks – und die werden auf der Ersetzen-Seite von EMR in der Praxis nicht zuverlässig ausgelöst."
+
+msgid "With \"Safe SVG\" alone, uploading SVG files into the WordPress Media Library works fine. As soon as you try to replace an existing file with an SVG via the <strong>\"Enable Media Replace\"</strong> plugin, the operation aborts with the message <em>\"Sorry, this file type is not permitted for security reasons.\"</em>."
+msgstr "Mit „Safe SVG“ allein funktioniert das Hochladen von SVG-Dateien in die WordPress-Mediathek problemlos. Sobald du aber versuchst, eine vorhandene Datei über das Plugin <strong>„Enable Media Replace“</strong> durch eine SVG-Datei zu ersetzen, bricht der Vorgang mit der Meldung <em>„Dieser Dateityp ist aus Sicherheitsgründen leider nicht erlaubt.“</em> ab."
+
+msgid "<strong>Problem:</strong>"
+msgstr "<strong>Problem:</strong>"
+
+msgid "Assets: cosmetic corrections to the banner graphics on WordPress.org."
+msgstr "Assets: kosmetische Korrekturen an den Banner-Grafiken auf WordPress.org."
+
+msgid "Compatibility: <code>Tested up to</code> raised to WordPress 7.1. No code changes."
+msgstr "Kompatibilität: <code>Tested up to</code> auf WordPress 7.1 angehoben. Keine Code-Änderungen."
+
+msgid "Registers the <code>upload_mimes</code> and <code>wp_check_filetype_and_ext</code> filters globally, gated by an active-Safe-SVG check."
+msgstr "Registriert die Filter <code>upload_mimes</code> und <code>wp_check_filetype_and_ext</code> global, abgesichert durch eine Prüfung, ob Safe SVG aktiv ist."
+
+msgid "Initial release."
+msgstr "Erste Veröffentlichung."
+
+msgid "Plugin Check compliance, no functional changes: Short Description and <code>== Description ==</code> translated to English."
+msgstr "Konformität mit Plugin Check, keine funktionalen Änderungen: Kurzbeschreibung und <code>== Description ==</code> ins Englische übersetzt."
+
+msgid "Translated all <code>readme.txt</code> sections (Installation, FAQ, Changelog, Upgrade Notice) to English."
+msgstr "Alle Abschnitte der <code>readme.txt</code> (Installation, FAQ, Changelog, Upgrade Notice) ins Englische übersetzt."
+
+msgid "Added a <code>languages/index.php</code> stub against direct access."
+msgstr "Eine <code>languages/index.php</code> als Schutz gegen Direktzugriff ergänzt."
+
+msgid "Plugin header description translated to English."
+msgstr "Beschreibung im Plugin-Header ins Englische übersetzt."
+
+msgid "Removed the capability check (<code>current_user_can( 'upload_files' )</code>) from the filter callbacks. As a result SVG uploads now also work in non-user contexts (WP-CLI, Cron, REST sideloads). Security is still guaranteed by the Safe-SVG-active guard and Safe SVG's sanitizer hook."
+msgstr "Die Berechtigungsprüfung (<code>current_user_can( 'upload_files' )</code>) aus den Filter-Callbacks entfernt. Dadurch funktionieren SVG-Uploads jetzt auch in Kontexten ohne Benutzer (WP-CLI, Cron, REST-Sideloads). Die Sicherheit bleibt durch die Prüfung, ob Safe SVG aktiv ist, und den Sanitizer-Hook von Safe SVG gewährleistet."
+
+msgid "Function prefix <code>ssuf_</code> → <code>compatibility_fix_for_safe_svg_</code>."
+msgstr "Funktionspräfix <code>ssuf_</code> → <code>compatibility_fix_for_safe_svg_</code>."
+
+msgid "Plugin renamed from \"Safe SVG Upload Fix\" to \"Compatibility Fix for Safe SVG\" (slug: <code>compatibility-fix-for-safe-svg</code>). Reason: the WP.org Plugin Directory does not accept plugin names that start with the name of another plugin; the \"for Safe SVG\" pattern is explicitly allowed."
+msgstr "Plugin von „Safe SVG Upload Fix“ in „Compatibility Fix for Safe SVG“ umbenannt (Slug: <code>compatibility-fix-for-safe-svg</code>). Grund: Das WP.org-Plugin-Verzeichnis akzeptiert keine Plugin-Namen, die mit dem Namen eines anderen Plugins beginnen; das Muster „for Safe SVG“ ist ausdrücklich erlaubt."
+
+msgid "Metadata: <code>Contributors</code> slug in <code>readme.txt</code> changed from <code>joerngorres</code> to <code>jgorres</code> to match the WordPress.org user name. No code changes."
+msgstr "Metadaten: <code>Contributors</code>-Slug in der <code>readme.txt</code> von <code>joerngorres</code> in <code>jgorres</code> geändert, passend zum WordPress.org-Benutzernamen. Keine Code-Änderungen."
+

@@ -1,0 +1,23 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Compatibility Fix for Safe SVG 1.1.2\n"
+"Last-Translator: Jörn Gorres <joern@gorres.com>\n"
+"Language-Team: Jörn Gorres <joern@gorres.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-09-28 20:00+0000\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Compatibility Fix for Safe SVG"
+msgstr "Compatibility Fix for Safe SVG"
+
+msgid "Jörn Gorres"
+msgstr "Jörn Gorres"
+
+msgid "https://joern.gorres.com"
+msgstr "https://joern.gorres.com"
+
+msgid "Fixes a conflict between \"Safe SVG\" and \"Enable Media Replace\" that prevents replacing existing media items with SVG files. Registers the required MIME-type filters globally, but only when Safe SVG is active, so that no unsanitized SVG upload path is opened."
+msgstr "Behebt einen Konflikt zwischen „Safe SVG“ und „Enable Media Replace“, durch den sich vorhandene Mediendateien nicht durch SVG-Dateien ersetzen lassen. Registriert die erforderlichen MIME-Typ-Filter global, jedoch nur, wenn Safe SVG aktiviert ist, damit kein Upload-Weg für nicht bereinigte SVG-Dateien entsteht."
